@@ -13,8 +13,7 @@ export class PingTask {
     this.statsService = statsService;
   }
 
-  // @Cron('* */5 * * * *')
-  @Cron('*/10 * * * * *')
+  @Cron('* */5 * * * *')
   async doPing() {
     const test = 'ping';
     const response = await this.igor.send('ping', test);
