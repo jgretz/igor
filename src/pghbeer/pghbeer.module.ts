@@ -2,6 +2,8 @@ import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {Beers} from './entities';
 import {PGHBEER_DB} from '../constants';
+import {BeersService} from './services';
+import {PghBeerTask} from './tasks';
 
 @Module({
   imports: [
@@ -13,7 +15,7 @@ import {PGHBEER_DB} from '../constants';
     }),
     TypeOrmModule.forFeature([Beers], PGHBEER_DB),
   ],
-  providers: [],
-  exports: [],
+  providers: [PghBeerTask, BeersService],
+  exports: [PghBeerTask],
 })
 export class PghBeerModule {}

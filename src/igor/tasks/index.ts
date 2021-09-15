@@ -1,1 +1,1 @@
-export {PingTask} from './ping.task';
+export {DataTask} from './data.task';

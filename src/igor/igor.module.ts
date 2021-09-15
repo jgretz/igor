@@ -1,13 +1,13 @@
 import {Module} from '@nestjs/common';
 
 import {IgorGateway} from './gateways';
-import {PingTask} from './tasks';
+import {DataTask} from './tasks';
 
-import {CentralModule} from '../central';
+import {PghBeerModule} from '../pghbeer';
 
 @Module({
-  imports: [CentralModule],
-  providers: [IgorGateway, PingTask],
+  imports: [PghBeerModule],
+  providers: [IgorGateway, DataTask],
   exports: [IgorGateway],
 })
 export class IgorModule {}

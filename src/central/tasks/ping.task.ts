@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {Cron} from '@nestjs/schedule';
-import {StatsService} from '../../central';
-import {IgorGateway} from '../gateways/igor.gateway';
+import {StatsService} from '../services';
+import {IgorGateway} from '../../igor/gateways/igor.gateway';
 
 @Injectable()
 export class PingTask {

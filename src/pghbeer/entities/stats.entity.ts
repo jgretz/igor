@@ -1,16 +1,20 @@
 import {Column, Entity} from 'typeorm';
 import {PghBeerEntity} from './pghbeer.entity';
+
 @Entity()
-export class Beers extends PghBeerEntity {
+export class Stats extends PghBeerEntity {
   @Column()
-  name: string;
+  date: Date;
 
   @Column()
-  abv: number;
+  opinion: number;
 
   @Column()
-  brewery_id: number;
+  beer_id: number;
 
   @Column()
-  style_id: number;
+  user_id: number;
+
+  @Column()
+  event_id: number;
 }
