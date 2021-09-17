@@ -1,32 +1,34 @@
 import {Injectable, Logger} from '@nestjs/common';
 import io, {Socket} from 'socket.io-client';
-import {DataTask} from '../tasks';
-import {IgorEvents, FindAllArgs} from '../Types';
+
+import {IgorSocketEvents} from '../Types';
+import {SocketEvents} from '../../Types';
+
+import {DataService} from '../../data';
 
 @Injectable()
 export class IgorGateway {
   socket: Socket;
 
-  constructor(dataTask: DataTask) {
+  constructor(dataService: DataService) {
     this.socket = io(process.env.HERMES_SOCKET_URL, {
       reconnectionDelayMax: 10000,
     });
 
-    this.socket.on(IgorEvents.Connect, () => {
+    this.socket.on(IgorSocketEvents.Connect, () => {
       Logger.log('Igor Connected');
     });
 
-    this.socket.on(IgorEvents.Error, (data) => {
+    this.socket.on(IgorSocketEvents.Error, (data) => {
       Logger.error('Igor had an exception', data);
     });
 
-    this.socket.on(IgorEvents.Disconnect, () => {
+    this.socket.on(IgorSocketEvents.Disconnect, () => {
       Logger.log('Igor disconnected');
     });
 
-    this.socket.on(IgorEvents.FindAll, async ({source, entity}: FindAllArgs, callback) => {
-      const data = await dataTask.findAll(source, entity);
-      callback(data);
+    this.socket.on(SocketEvents.Data, (args, callback) => {
+      dataService.handle(args, callback);
     });
   }
 

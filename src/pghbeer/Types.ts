@@ -1,4 +1,4 @@
-export type PghBeerEntity = 'beers';
+export type PghBeerResource = 'beers';
 // | 'breweries'
 // | 'eventbeerlist'
 // | 'events'

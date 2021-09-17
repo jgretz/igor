@@ -4,16 +4,18 @@ import {Repository} from 'typeorm';
 
 import {Beers} from '../entities';
 import {PGHBEER_DB} from '../../constants';
-import {IDataService} from '../../Types';
+import {IDatabaseService} from '../../Types';
 
 @Injectable()
-export class BeersService implements IDataService {
+export class BeersService implements IDatabaseService {
   constructor(
     @InjectRepository(Beers, PGHBEER_DB)
     private beers: Repository<Beers>,
   ) {}
 
-  findAll(): Promise<Array<Beers>> {
-    return this.beers.find();
+  find(query?: {string: unknown}): Promise<Array<Beers>> {
+    return this.beers.find({
+      where: query,
+    });
   }
 }

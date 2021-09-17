@@ -1,6 +1,11 @@
-export interface IDataTask {
-  map(entity: string): IDataService;
+export enum SocketEvents {
+  Data = 'data',
 }
-export interface IDataService {
-  findAll(): Promise<Array<unknown>>;
+
+export interface IgorSocketHandler {
+  handle(args: unknown, callback: (result: unknown) => void): unknown;
+}
+
+export interface IDatabaseService {
+  find(query?: {string: unknown}): Promise<Array<unknown>>;
 }

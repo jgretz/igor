@@ -1,2 +1,2 @@
-export {PghBeerTask} from './tasks';
+export {PghBeerService} from './services';
 export {PghBeerModule} from './pghbeer.module';
