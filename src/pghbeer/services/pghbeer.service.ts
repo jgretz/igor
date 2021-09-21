@@ -16,12 +16,15 @@ export class PghBeerService implements IDataService {
     };
   }
 
-  find(resource: PghBeerResource, query?: {string: unknown}): Promise<unknown[]> {
-    const service = this.serviceMap[resource];
-    if (!service) {
-      return;
-    }
+  serviceForResource(resource: PghBeerResource): IDatabaseService | null {
+    return this.serviceMap[resource];
+  }
 
-    return service.find(query);
+  find(resource: PghBeerResource, query?: {string: unknown}): Promise<unknown[]> {
+    return this.serviceForResource(resource)?.find(query);
+  }
+
+  findOne(resource: PghBeerResource, id: number): Promise<unknown> {
+    return this.serviceForResource(resource)?.findOne(id);
   }
 }

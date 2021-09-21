@@ -18,4 +18,8 @@ export class BeersService implements IDatabaseService {
       where: query,
     });
   }
+
+  findOne(id: number): Promise<Beers> {
+    return this.beers.findOne(id);
+  }
 }

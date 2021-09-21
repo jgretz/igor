@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 
 import {IgorSocketHandler} from '../../Types';
-import {DataArgs, DataEvents, DataSource, FindArgs, IDataService} from '../Types';
+import {DataArgs, DataEvents, DataSource, FindArgs, FindOneArgs, IDataService} from '../Types';
 
 import {PghBeerService} from '../../pghbeer';
 
@@ -17,6 +17,7 @@ export class DataService implements IgorSocketHandler {
 
     this.logicMap = {
       [DataEvents.Find]: this.findAll,
+      [DataEvents.FindOne]: this.findOne,
     };
   }
 
@@ -30,5 +31,9 @@ export class DataService implements IgorSocketHandler {
 
   async findAll(service: IDataService, {resource, query}: FindArgs): Promise<Array<unknown>> {
     return service.find(resource, query);
+  }
+
+  async findOne(service: IDataService, {resource, id}: FindOneArgs): Promise<unknown> {
+    return service.findOne(resource, id);
   }
 }

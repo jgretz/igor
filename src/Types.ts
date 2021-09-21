@@ -8,4 +8,5 @@ export interface IgorSocketHandler {
 
 export interface IDatabaseService {
   find(query?: {string: unknown}): Promise<Array<unknown>>;
+  findOne(id: number): Promise<unknown>;
 }

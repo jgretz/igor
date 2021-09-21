@@ -1,12 +1,13 @@
 export enum DataEvents {
   Find = 'Find',
-  // FindOne = 'FindOne',
+  FindOne = 'FindOne',
 }
 
 export type DataSource = 'pghbeer';
 
 export interface IDataService {
   find(resource: string, query?: {string: unknown}): Promise<Array<unknown>>;
+  findOne(resource: string, id: number): Promise<unknown>;
 }
 
 export interface DataArgs {
@@ -17,4 +18,8 @@ export interface DataArgs {
 
 export interface FindArgs extends DataArgs {
   query: {string: unknown};
+}
+
+export interface FindOneArgs extends DataArgs {
+  id: number;
 }
