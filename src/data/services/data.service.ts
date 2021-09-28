@@ -1,7 +1,17 @@
 import {Injectable} from '@nestjs/common';
 
 import {IgorSocketHandler} from '../../Types';
-import {DataArgs, DataEvents, DataSource, FindArgs, FindOneArgs, IDataService} from '../Types';
+import {
+  CreateArgs,
+  DataArgs,
+  DataEvents,
+  DataSource,
+  IDataService,
+  FindArgs,
+  FindOneArgs,
+  DeleteArgs,
+  UpdateArgs,
+} from '../Types';
 
 import {PghBeerService} from '../../pghbeer';
 
@@ -18,6 +28,9 @@ export class DataService implements IgorSocketHandler {
     this.logicMap = {
       [DataEvents.Find]: this.findAll,
       [DataEvents.FindOne]: this.findOne,
+      [DataEvents.Create]: this.create,
+      [DataEvents.Update]: this.update,
+      [DataEvents.Delete]: this.remove,
     };
   }
 
@@ -35,5 +48,17 @@ export class DataService implements IgorSocketHandler {
 
   async findOne(service: IDataService, {resource, id}: FindOneArgs): Promise<unknown> {
     return service.findOne(resource, id);
+  }
+
+  async create(service: IDataService, {resource, body}: CreateArgs): Promise<unknown> {
+    return service.create(resource, body);
+  }
+
+  async update(service: IDataService, {resource, id, body}: UpdateArgs): Promise<unknown> {
+    return service.update(resource, id, body);
+  }
+
+  async remove(service: IDataService, {resource, id}: DeleteArgs): Promise<void> {
+    return service.remove(resource, id);
   }
 }

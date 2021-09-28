@@ -4,22 +4,21 @@ import {Repository} from 'typeorm';
 
 import {Beers} from '../entities';
 import {PGHBEER_DB} from '../../constants';
-import {IDatabaseService} from '../../Types';
+import {DatabaseService} from '../../util';
+
+import {CreateBeersDto, FindBeersDto, UpdateBeersDto} from '../dto';
 
 @Injectable()
-export class BeersService implements IDatabaseService {
+export class BeersService extends DatabaseService<
+  Beers,
+  FindBeersDto,
+  CreateBeersDto,
+  UpdateBeersDto
+> {
   constructor(
     @InjectRepository(Beers, PGHBEER_DB)
     private beers: Repository<Beers>,
-  ) {}
-
-  find(query?: {string: unknown}): Promise<Array<Beers>> {
-    return this.beers.find({
-      where: query,
-    });
-  }
-
-  findOne(id: number): Promise<Beers> {
-    return this.beers.findOne(id);
+  ) {
+    super(beers);
   }
 }

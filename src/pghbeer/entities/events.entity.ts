@@ -1,8 +1,8 @@
 import {Column, Entity} from 'typeorm';
-import {PghBeerEntity} from './pghbeer.entity';
+import {BaseEntity} from '../../util';
 
 @Entity()
-export class Events extends PghBeerEntity {
+export class Events extends BaseEntity {
   @Column()
   name: string;
 }

@@ -27,4 +27,16 @@ export class PghBeerService implements IDataService {
   findOne(resource: PghBeerResource, id: number): Promise<unknown> {
     return this.serviceForResource(resource)?.findOne(id);
   }
+
+  create(resource: PghBeerResource, body: {string: unknown}): Promise<unknown> {
+    return this.serviceForResource(resource)?.create(body);
+  }
+
+  update(resource: PghBeerResource, id: number, body: {string: unknown}): Promise<unknown> {
+    return this.serviceForResource(resource)?.update(id, body);
+  }
+
+  remove(resource: PghBeerResource, id: number): Promise<void> {
+    return this.serviceForResource(resource)?.remove(id);
+  }
 }

@@ -56,6 +56,16 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
+"@automapper/core@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@automapper/core/-/core-6.2.1.tgz#548746dee9935d16ff099062952d09691774cd80"
+  integrity sha512-vz51AubIafpD5DXrMB7AjMzx4qM9pmqMwolpFtR9glWSJCDHAsuuNNtyVfGU6WKmXtnWsZQyUeh9uIQBmjw8+g==
+
+"@automapper/types@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@automapper/types/-/types-6.2.1.tgz#27a93570709395cc469d0df9b3ecf833c87ac236"
+  integrity sha512-a/hSzV4ETeUJf7l3XJNlfv3TRNCD03Dvv2IpR0o7X9lEFox2mPV5PtbD7HsfJpTenMinueaOwKDnnM53RJeZuQ==
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
