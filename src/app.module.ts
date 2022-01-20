@@ -1,10 +1,10 @@
 import {Module} from '@nestjs/common';
-import {ScheduleModule} from '@nestjs/schedule';
-import {IgorModule} from './igor';
-import {CentralModule} from './central';
-import {PghBeerModule} from './pghbeer';
+import {IgorController} from './igor.controller';
+import {RabbitMqService} from '@jgretz/igor-rabbit';
+import {SocketService} from '@jgretz/igor-socket';
 
 @Module({
-  imports: [ScheduleModule.forRoot(), CentralModule, PghBeerModule, IgorModule],
+  providers: [SocketService, RabbitMqService],
+  controllers: [IgorController],
 })
 export class AppModule {}
