@@ -1,7 +1,7 @@
 import {Controller} from '@nestjs/common';
 import {RabbitMqService} from '@jgretz/igor-rabbit';
 import {SocketService} from '@jgretz/igor-socket';
-import {COMMAND, CRUD, CrudEventArgs, CommandEventArgs} from './Types';
+import {CRUD, COMMAND, CrudEventArgs, CommandEventArgs} from '@jgretz/igor-data-microservice';
 
 @Controller()
 export class IgorController {
