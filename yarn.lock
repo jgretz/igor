@@ -570,13 +570,13 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@jgretz/igor-data-microservice@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@jgretz/igor-data-microservice/-/igor-data-microservice-1.0.0.tgz#630d8f82df8c5ceec4abf46d042e60b0a51fc4cb"
-  integrity sha512-iVjyZHh+4u3nqm242HM91f93UWI7Sh0A2B03SCZF9Q3o4/WUgYnOMdthGMkLegWj0dwF3OXT5VBihs9YirggPA==
+"@jgretz/igor-data-microservice@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@jgretz/igor-data-microservice/-/igor-data-microservice-1.0.2.tgz#4388ec6d924425ea1e1e4b7285538b17eea0cf2c"
+  integrity sha512-rXnbXKoFD4FIUNRqDeu9ZoMKlYv6tivuulhui2MXWqF7mdDu1m0/XBKVYzO2vUp+fczBVr31ts7q/PuoY+Rxiw==
   dependencies:
     "@jgretz/igor-data" "^1.0.6"
-    "@jgretz/igor-rabbit" "^1.0.5"
+    "@jgretz/igor-rabbit" "^1.0.7"
     "@nestjs/common" "^8.2.4"
     "@nestjs/core" "^8.2.4"
     "@nestjs/microservices" "^8.2.4"
@@ -601,10 +601,10 @@
   resolved "https://registry.yarnpkg.com/@jgretz/igor-log/-/igor-log-1.0.4.tgz#37958c1f1384338407396c4bfe6a0b4d33873da9"
   integrity sha512-5V6X59R0jR+ghmXmyD4TPG4o+eMTMs6BoHp8AKdqzc+cEzBASb8m2+vPTwAOhAwuE/hFQHrdOwyMO3d2nPL4Wg==
 
-"@jgretz/igor-rabbit@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@jgretz/igor-rabbit/-/igor-rabbit-1.0.5.tgz#f1b7fa4fe6831fd78a588dda89e71b959c531783"
-  integrity sha512-xelJ7aNEkxMX3xG3TjVfpyS7JGnfgChCpEEfh9DWbq1b/XvvLWAX6AAZnrkkW1E1PPp0vI6t+gbzjmLxRc9aJw==
+"@jgretz/igor-rabbit@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@jgretz/igor-rabbit/-/igor-rabbit-1.0.7.tgz#5542bf59307628003e48ca5b79b36085a0e03354"
+  integrity sha512-oEbmccP8cMki5j3qd8WdFK+B1bV15GOfG9NdhEZTyRFu9QZ5oyh5hkp4u8mhZczprbyeycCKCT4tBmJVmrdHAw==
   dependencies:
     "@jgretz/igor-log" "^1.0.0"
     amqplib "^0.8.0"
