@@ -1,7 +1,8 @@
 import {Controller} from '@nestjs/common';
+import {CRUD, COMMAND} from '@jgretz/igor-shared';
 import {RabbitMqService} from '@jgretz/igor-rabbit';
 import {SocketService} from '@jgretz/igor-socket';
-import {CRUD, COMMAND, CrudEventArgs, CommandEventArgs} from '@jgretz/igor-data-microservice';
+import {CrudEventArgs, CommandEventArgs} from '@jgretz/igor-data-microservice';
 
 const TIMEOUT = 10000;
 
@@ -9,7 +10,9 @@ const connectCrud = (socket: SocketService, rabbit: RabbitMqService) => {
   socket.subscribe(CRUD, async (args: CrudEventArgs, callback: any) => {
     rabbit.send(CRUD, args.source, args, {
       timeout: TIMEOUT,
-      handler: callback,
+      handler: (response) => {
+        callback(response);
+      },
     });
   });
 };
