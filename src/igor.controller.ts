@@ -4,7 +4,7 @@ import {RabbitMqService} from '@jgretz/igor-rabbit';
 import {SocketService} from '@jgretz/igor-socket';
 import {CrudEventArgs, CommandEventArgs} from '@jgretz/igor-data-microservice';
 
-const TIMEOUT = 10000;
+const TIMEOUT = 25000;
 
 const connectCrud = (socket: SocketService, rabbit: RabbitMqService) => {
   socket.subscribe(CRUD, async (args: CrudEventArgs, callback: any) => {
